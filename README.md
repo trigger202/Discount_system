@@ -52,7 +52,7 @@ $cart->total();
 
 
 
-ASSUMPTION
+ASSUMPTIONS
 ==========
 I have assumed that when customer buys game of thrones: season 1, they will automaitcally get 1 free fresh prince of bell air.
 
