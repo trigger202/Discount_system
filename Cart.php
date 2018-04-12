@@ -43,24 +43,17 @@ class Cart
             return ;
         }
 
-        if(isset($this->productList[$productID]))
-        {
-            $numberOfTimesToAdd = $count;
-            while ($numberOfTimesToAdd>0)
-            {
-                if(isset($this->cart[$productID]))
-                {
-                    $quantity = $this->cart[$productID]['quantity'];
-                    $this->cart[$productID]= array('productID'=>$productID,'price'=>$this->productList[$productID], 'quantity'=>$quantity+1);
-                }
-                else
-                {
-                    $this->cart[$productID]= array('productID'=>$productID,'price'=>$this->productList[$productID], 'quantity'=>1);
-                }
-                $numberOfTimesToAdd--;
-            }
-        }
+        /*cannot add products not in inventory*/
+        if(!isset($this->productList[$productID]))
+            return;
 
+        $quantity = 0;
+        if(isset($this->cart[$productID])) /*update count*/
+        {
+            $quantity = $this->cart[$productID]['quantity'];
+        } /*new item add this the first time*/
+
+        $this->cart[$productID]= array('productID'=>$productID,'price'=>$this->productList[$productID], 'quantity'=>$quantity+$count, 'TotalPrice'=>0);
     }
 
 
@@ -121,6 +114,9 @@ class Cart
                     $this->cart[$id] = $gift;
                 }
             }
+
+            echo "<br><h4>Gift received courtesy of The Nile. See cart details Below</h4><br>";
+            $this->printCart();
         }
         unset($this->complementaryItemsList);
         echo '<br>';

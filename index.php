@@ -31,33 +31,28 @@ $discountRules =  array(
 
 
 
-//$cart = new Cart($productList, $discountRules);
-//$cart->addToCart('9780201835953',9);
-//$cart->addToCart('9325336028278');
-//$cart->printCart();
-//$cart->getTotal();
-//
-//
-//$cart = new Cart($productList, $discountRules);
-//$cart->addToCart('9781430219484',3);
-//$cart->addToCart('9780132071482');
-//$cart->printCart();
-//$cart->getTotal();
-//
-//
-//
-//$cart = new Cart($productList, $discountRules);
-//$cart->addToCart('9325336028278');
-//$cart->addToCart('9780201835953');
-//$cart->addToCart('9325336130810');
-//$cart->printCart();
-//$cart->getTotal();
-
+$cart = new Cart($productList, $discountRules);
+$cart->addToCart('9780201835953',10);
+$cart->addToCart('9325336028278');
+$cart->printCart();
+$cart->getTotal();
 
 
 $cart = new Cart($productList, $discountRules);
-$cart->addToCart('9780132071482',5);
+$cart->addToCart('9781430219484',3);
+$cart->addToCart('9780132071482');
 $cart->printCart();
 $cart->getTotal();
+//
+//
+//
+$cart = new Cart($productList, $discountRules);
+$cart->addToCart('9325336028278');
+$cart->addToCart('9780201835953');
+$cart->addToCart('9325336130810');
 $cart->printCart();
+$cart->getTotal();
+
+
+
 
